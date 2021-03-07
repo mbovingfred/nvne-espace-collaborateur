@@ -1,0 +1,17 @@
+<!-- <input type="checkbox" id="my-checkbox" name="{{name}}" value="{{value}}">&nbsp;&nbsp;
+<label for="my-checkbox">{{label}}</label> <br/> -->
+
+<div class="round">
+  <input (change)="onChange(data)" ngModel #data="ngModel" type="checkbox" id="{{name}}" name="{{name}}" 
+    required="{{requiredProperty}}" />&nbsp;&nbsp;&nbsp;
+  <label for="{{name}}" class="checkmark"></label>
+  <label for="{{name}}">{{label}}</label>
+</div>
+<div *ngIf="data.invalid && (data.dirty || data.touched)"
+      class="alert alert-danger">
+
+    <div *ngIf="data.errors.required">
+      Cette information est obligatoire.
+    </div>
+
+</div>

@@ -1,0 +1,19 @@
+<div class="container content-wrapper pt-5">
+  <div class="back pt-5">
+    <app-nvne-btn-ico [alt]="'retour'" (click)="goBack()"></app-nvne-btn-ico>
+  </div>
+  <div class="title">
+    <h1>Vous êtes ?</h1>
+  </div>
+
+  <!-- <div class="container"> -->
+    <div class="dual-links container">
+      <div class=" ">
+        <app-nvne-btn [type]="'button'" routerLink="/inscripEntreprise" [big]="true" [text]="'Entreprise'"></app-nvne-btn>
+      </div>
+      <div class="">
+        <app-nvne-btn [type]="'button'" routerLink="/inscripPartenaire" [big]="true" [text]="'Collaborateur'"></app-nvne-btn>
+      </div>
+    </div>
+  <!-- </div> -->
+</div>

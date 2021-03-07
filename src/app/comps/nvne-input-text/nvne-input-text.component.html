@@ -1,0 +1,25 @@
+<div class="input-content">
+  <input ngModel #data="ngModel" ngModel="{{ngModel}}" type="{{type}}" name="{{name}}" required="{{requiredProperty}}" 
+    minlength="{{minlength}}" [email]="type=='email' ? 'true':'false'" disabled="{{disabledProperty?disabledProperty:'false'}}" />
+  <label for="{{name}}" class="label-name">
+    <span class="content-name">{{placeholder}}</span>
+  </label>
+</div>
+<div *ngIf="data.invalid && (data.dirty || data.touched)"
+      class="alert alert-danger">
+
+    <div *ngIf="data.errors.required">
+      {{name}} obligatoire.
+    </div>
+    <div *ngIf="data.errors.minlength">
+      {{name}} doit avoir au moins {{minlength}} caratères.
+    </div>
+    <div *ngIf="data.errors.forbiddenName">
+      {{name}} ne peut pas être Bob.
+    </div>
+    <div *ngIf="data.errors.email">
+      Adresse email incorrecte.
+    </div>
+
+</div>
+

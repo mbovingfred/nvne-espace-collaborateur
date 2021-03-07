@@ -1,0 +1,26 @@
+.dual-links{
+  height: 10rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  min-height: 150px;
+  width: 100%;
+}
+
+.dual-links > div {
+  margin: 0 10px;
+}
+
+.back {
+  padding: 2rem;
+}
+
+.title {
+  text-align: center;
+  padding: 3rem;
+}
+
+.content-wrapper {
+  min-height: 70vh;
+}

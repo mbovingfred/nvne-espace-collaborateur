@@ -1,0 +1,42 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nvne-front
+  namespace: nvne
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: ip-nvne-fr
+    # kubernetes.io/ingress.allow-http: "false"
+    nginx.ingres.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: www.nvne.fr
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: nvne-front
+              servicePort: 8080
+          # - path: /user-admin(/|$)(.*)
+          - path: /api
+            backend:
+              serviceName: nvne-user-admin-service
+              servicePort: 8080
+    - host: accounts.nvne.fr
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: keycloak
+              servicePort: 8080
+    - host: admin.nvne.fr
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: nvne-user-admin-front
+              servicePort: 8080
+          # - path: /user-service(/|$)(.*)
+          # - path: /user-admin
+          #   backend:
+          #     serviceName: nvne-user-admin-service
+          #     servicePort: 8080

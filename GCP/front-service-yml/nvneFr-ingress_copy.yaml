@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nvne-front
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    # nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+    - host: www.nvne.fr
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: nvne-front
+            servicePort: 8080
+        - path: /user(/|$)(.*)
+          backend:
+            serviceName: nvne-user-admin-front
+            servicePort: 8080
+        - path: /auth(/|$)(.*)
+          backend:
+            serviceName: nvne-auth
+            servicePort: 8080
+          # # - path: /user-service(/|$)(.*)
+          # - path: /user-service
+          #   backend:
+          #     serviceName: nvne-user-admin-service
+          #     servicePort: 8080
+          # - path: /user-admin(/|$)(.*)

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <a class="navbar-brand" href="{{util.env.homeUrl}}"><img src="/assets/img/ico/logo.jfif" height="40" alt="Logo NVNE"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a *ngIf="securityService.kc.authenticated && securityService.kc.realmAccess.roles.includes('partenaire')"
+          class="nav-link" routerLink="/missions">Missions <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+
+    <span class="nav">
+      <li *ngIf="securityService.kc.authenticated" class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="text-white" *ngIf="securityService.kc.authenticated">{{securityService.kc.tokenParsed['given_name']}}</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#" (click)="onLogout()">Se déconnecter</a>
+          <!-- <a *ngIf="securityService.kc.realmAccess.roles.includes('user-manager')" class="dropdown-item" href="#" (click)="onChangePassword()">Modifier mot de passe</a> -->
+          <a class="dropdown-item" href="#" (click)="onChangePassword()">Modifier mot de passe</a>
+        </div>
+      </li>
+      <!-- <a *ngIf="securityService.kc.authenticated" class="text-white" routerLink="/collaborateurs">Espace perso</a> -->
+      <a *ngIf="securityService.kc.authenticated && securityService.kc.realmAccess.roles.includes('user')"
+        routerLink="/profil" class="text-white navi-item">Mon espace</a>
+      <a *ngIf="securityService.kc.authenticated && securityService.kc.realmAccess.roles.includes('user-manager')"
+        href="{{adminUrl}}" class="text-white navi-item">Administration</a>
+      <app-nvne-btn [type]="'button'" *ngIf="!securityService.kc.authenticated" (click)="onLogin()" [text]="'Se connecter'"></app-nvne-btn>
+      <app-nvne-btn-o *ngIf="!securityService.kc.authenticated" routerLink="/vous-etes" [text]="'S\'inscrire'"></app-nvne-btn-o>
+      <!-- <app-nvne-btn-o routerLink="/register" [text]="'test'"></app-nvne-btn-o> -->
+      <!-- <a class="btn btn-outline-primary my-2 mr-sm-2" routerLink="/inscripEntrepreneur">Entrepreneur</a>
+      <span class="navbar-text">
+        <a class="nav-link mr-sm-2" routerLink="/apropos">A Propos</a>
+      </span>
+      <span class="navbar-text">
+        <a class="nav-link mr-sm-2" routerLink="/contact">Contact</a>
+      </span> -->
+    </span>
+  </div>
+</nav>

@@ -1,0 +1,8 @@
+.pic-with-status{
+  display: inline-block;
+}
+
+.pic-with-status div{
+  font-weight: bold;
+  text-align: right;
+}

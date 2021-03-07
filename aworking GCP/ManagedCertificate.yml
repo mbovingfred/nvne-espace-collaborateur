@@ -1,0 +1,11 @@
+apiVersion: networking.gke.io/v1beta2
+kind: ManagedCertificate
+metadata:
+  name: mcert-nvne-fr
+  namespace: nvne
+spec:
+  domains:
+    - nvne.fr
+    - www.nvne.fr
+    - admin.nvne.fr
+    - accounts.nvne.fr

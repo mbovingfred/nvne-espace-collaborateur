@@ -1,0 +1,76 @@
+<div class="m-5"></div>
+<div class="container main">
+
+  <div class="row">
+    <div class="col center">
+      <h1>Mon profil</h1>
+    </div>
+  </div>
+
+  <div class="row tabs">
+    <div class="col center">
+      <a [routerLink]="'/entreprise/planning'">PLANNING</a>
+    </div>
+    <div class="col center">
+      <a class="active" [routerLink]="'/entreprise/missions-effectue'">MISSIONS EFFECTUÉ</a>
+    </div>
+    <div class="col center">
+      <a [routerLink]="'/entreprise/profil'">COMPLÉTER MON PROFIL</a>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col col-sm-12">
+      <div class="row">
+        <app-nvne-list-mission-item
+          [color]="'red'"
+          [text]="'hors ligne'"
+          [src]="'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50'"
+          [width]="'100'"
+          [height]="'100'"
+          [date]="'18/09/2020'"
+          [heureDeb]="'14'"
+          [heureFin]="'19'"
+          [nom]="'Nom de l\'offre'"
+          [prix]="'30 €'"
+          [desc]="'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper.'"
+          >
+        </app-nvne-list-mission-item>
+      </div>
+      <div class="row">
+        <app-nvne-list-mission-item
+          [color]="'red'"
+          [text]="'hors ligne'"
+          [src]="'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50'"
+          [width]="'100'"
+          [height]="'100'"
+          [date]="'18/09/2020'"
+          [heureDeb]="'14'"
+          [heureFin]="'19'"
+          [nom]="'Nom de l\'offre'"
+          [prix]="'30 €'"
+          [desc]="'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper.'"
+          >
+        </app-nvne-list-mission-item>
+      </div>
+      <div class="row">
+        <app-nvne-list-mission-item
+          [color]="'red'"
+          [text]="'hors ligne'"
+          [src]="'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50'"
+          [width]="'100'"
+          [height]="'100'"
+          [date]="'18/09/2020'"
+          [heureDeb]="'14'"
+          [heureFin]="'19'"
+          [nom]="'Nom de l\'offre'"
+          [prix]="'30 €'"
+          [desc]="'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper.'"
+          >
+        </app-nvne-list-mission-item>
+      </div>
+    </div>
+  </div>
+
+</div>

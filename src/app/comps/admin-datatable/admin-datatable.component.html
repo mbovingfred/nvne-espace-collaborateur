@@ -1,0 +1,84 @@
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">{{title}}</h3>
+
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <div class="card-tools">
+      <!-- <form #f="ngForm" (ngSubmit)="onChangeNumEntries(f.value)" class="dataTables_length float-left" id="example1_length"> -->
+      <form #f="ngForm" class="dataTables_length float-left" id="example1_length">
+        <label>
+          Show
+          <select name="size" ngModel aria-controls="example1" (change)="onChangeNumEntries(f.value)"
+              class="">
+          <!-- <select name="size" ngModel aria-controls="example1"
+              class=""> -->
+            <option value="3">3</option>
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select> entries
+        </label>
+      </form>
+      <div>
+        <!-- <button class="primary" (click)="onGetAutoEntrepreneurs()">Dossiers</button> -->
+      </div>
+      <!-- <form #f="ngForm" (ngSubmit)="onChercher(f.value)" class="input-group input-group-sm float-right" style="width: 150px;"> -->
+      <form #f="ngForm" class="input-group input-group-sm float-right" style="width: 150px;">
+        <a routerLink="/new-entrepreneur">Ajouter</a>
+        <input type="text" name="keyword" ngModel class="form-control float-right" placeholder="Search">
+
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+        </div>
+      </form>
+    </div>
+    <table *ngIf="data" datatable class="table table-bordered table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th *ngFor="let cd of columnDefs">
+            {{cd.headerName}}
+          </th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of data._embedded[resourceName]">
+          <td *ngFor="let cd of columnDefs">
+            <span *ngIf="cd.type=='text'">{{d[cd.field]}}</span>
+            <span *ngIf="cd.type=='link'"><a href="{{cd.linkURL}}/{{d[cd.field]}}">{{d[cd.field]}}</a></span>
+          </td>
+          <!-- <td><a href="#">{{d.cv}}</a></td> -->
+          <td><button class="btn btn-danger" (click)="onDeleteProduct(d)">Supprimer</button></td>
+          <!-- <td><button class="btn btn-danger">Supprimer</button></td> -->
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>#</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- /.card-body -->
+
+  <div class="card-footer clearfix">
+    <div class="float-left">
+      <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing from {{from}} to {{to}} of {{totalElements}} entries</div>
+    </div>
+    <ul class="pagination float-right">
+      <!-- <li class="paginate_button page-item previous disabled" id="example2_previous"><a href="#"
+          aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li> -->
+      <li class="paginate_button page-item"[ngClass]="i==currentPage?'active':''" *ngFor="let p of pages; let i=index">
+        <a (click)="onPageDossier(i)" aria-controls="example2" data-dt-idx="1" tabindex="0"
+          class="page-link">{{i}}</a>
+      </li>
+      <!-- <li class="paginate_button page-item next" id="example2_next"><a href="#" aria-controls="example2"
+          data-dt-idx="7" tabindex="0" class="page-link">Next</a></li> -->
+    </ul>
+  </div>
+
+</div>
+<!-- /.card -->

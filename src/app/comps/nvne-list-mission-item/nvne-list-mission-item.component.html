@@ -1,0 +1,21 @@
+<div>
+  <div class="date"><div>{{date}} ~ {{heureDeb}}-{{heureFin}}</div></div>
+  <div class="last col col-sm-12 col-md-9">
+    <app-nvne-rounded-pic-with-status
+      [color]="color"
+      [text]="text"
+      [src]="src"
+      [width]="width"
+      [height]="height">
+    </app-nvne-rounded-pic-with-status>
+    <div class="side">
+      <span class="title">{{nom}}</span> &nbsp; &nbsp; <img class="prix-ico" src="https://img.icons8.com/ios/50/000000/price-tag-euro.png"/> &nbsp; <span class="prix">{{prix}}</span>
+      <p>Description de l'offre :</p>
+      <p class="desc">{{desc}}</p>
+    </div>
+  </div>
+  <!-- <div class="last col col-sm-12 col-md-3">
+    <app-nvne-btn [text]="'Voir mon avis'"></app-nvne-btn>
+  </div> -->
+</div>
+

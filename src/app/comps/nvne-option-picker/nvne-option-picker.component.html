@@ -1,0 +1,17 @@
+<div class="row component">
+    <div class="col-6">
+        <div *ngFor="let item of options | slice:0:half; let i = index" class="option"
+        (click)="onSelect(item)"
+        [ngClass]="item.selected==true?'active':'notactive'">
+            <span>{{item.time.hours}}H{{item.time.minutes}}</span>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div *ngFor="let item of options | slice:half; let i = index" class="option"
+        (click)="onSelect(item)"
+        [ngClass]="item.selected==true?'active':'notactive'">
+            <span>{{item.time.hours}}H{{item.time.minutes}}</span>
+        </div>
+    </div>
+</div>

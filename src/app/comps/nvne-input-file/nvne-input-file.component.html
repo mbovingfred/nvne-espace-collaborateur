@@ -1,0 +1,23 @@
+<div class="input-content">
+    <input type="file" (change)="selectFile($event)" ngModel #data="ngModel" autocomplete="off" 
+    ngModel="{{ngModel}}" accept="{{accept}}" max="{{max}}" id="{{name}}" name="{{name}}" 
+    required="{{requiredProperty}}" disabled="{{disabledProperty?disabledProperty:'false'}}" />
+    <span class="label-name">
+      <span class="content-name">
+        <span class="value">{{ngModel? ngModel['name']? (ngModel['name'] | slice:0:16) : (ngModel | slice:0:16) : ("Aucun Fichier Sélectionné" | slice:0:16)}}</span>
+        <label for="{{name}}"><fa-icon [icon]="faFolder"></fa-icon></label>
+      </span>
+    </span>
+    <span class="virtual-label">
+      <span class="content-name">{{placeholder}}</span>
+    </span>
+  </div>
+  
+  <!-- <div *ngIf="data.invalid && (data.dirty || data.touched)"
+        class="alert alert-danger">
+        {{name}} invalide.
+      <div *ngIf="data.errors.">
+        {{name}} obligatoire.
+      </div>
+  
+  </div> -->

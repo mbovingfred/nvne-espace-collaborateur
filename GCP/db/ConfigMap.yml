@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  namespace: nvne
+  labels:
+    app: postgres
+data:
+  POSTGRES_DB: nvnena9gef9xh7ufku9w
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: admin

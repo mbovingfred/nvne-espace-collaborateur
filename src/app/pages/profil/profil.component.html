@@ -1,0 +1,198 @@
+<div class="m-5"></div>
+<div class="container main">
+
+  <div class="row">
+    <div class="col">
+      <h1>Mon profil</h1>
+    </div>
+  </div>
+
+  <div class="row tabs">
+    <div class="col">
+      <a [routerLink]="">PLANNING</a>
+      <!-- <a [routerLink]="'/entreprise/planning'">PLANNING</a> -->
+    </div>
+    <div class="col">
+      <a [routerLink]="">MISSIONS EFFECTUÉ</a>
+      <!-- <a [routerLink]="'/entreprise/missions-effectue'">MISSIONS EFFECTUÉ</a> -->
+    </div>
+    <div class="col">
+      <a class="active" [routerLink]="'/entreprise/profil'">COMPLÉTER MON PROFIL</a>
+    </div>
+  </div>
+
+  <div *ngIf="successmsg" class="alert alert-success" role="alert">
+    {{successmsg}}
+  </div>
+  
+  <div *ngIf="errormsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{errormsg}}
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm-12 col-md-5">
+      <div class="row">
+        <app-nvne-rounded-pic-with-ico
+          [color]="'green'"
+          [icoSrc]="'https://img.icons8.com/material-sharp/24/000000/edit.png'"
+          [src]="'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50'"
+          [width]="'150'"
+          [height]="'150'">
+        </app-nvne-rounded-pic-with-ico>
+      </div>
+      <div class="row" (click)="accountManagement()">
+        <app-nvne-input-text class="col-sm-12 col-lg-6"
+          [ngModel]="userCollaborateur.nom"
+          [placeholder]="'Nom'"
+          [type]="'text'"
+          [name]="'nom'"
+          id="'nom'"
+          [requiredProperty]="'required'"
+          [disabledProperty]="'disabled'"
+          ngDefaultControl>
+        </app-nvne-input-text>
+        <app-nvne-input-text class="col-sm-12 col-lg-6"
+          [ngModel]="userCollaborateur.prenom"
+          [placeholder]="'Prénom'"
+          [type]="'text'"
+          [name]="'prenom'"
+          id="prenom"
+          [requiredProperty]="'required'"
+          [disabledProperty]="'disabled'"
+          ngDefaultControl>
+        </app-nvne-input-text>
+      </div>
+      <div class="row" (click)="accountManagement()">
+        <app-nvne-input class="col-sm-12 col-lg-6"
+          [ngModel]="userCollaborateur.birthdate"
+          [placeholder]="'Date de naissance'"
+          [type]="'date'"
+          [name]="'date_naiss'"
+          [max]="minDate"
+          id="'date_naiss'"
+          [requiredProperty]="'required'"
+          [disabledProperty]="'disabled'"
+          ngDefaultControl>
+        </app-nvne-input>
+        <app-nvne-input-text class="col-sm-12 col-lg-6"
+          [ngModel]="userCollaborateur.birthplace"
+          [placeholder]="'Lieu de naissance'"
+          [type]="'text'"
+          [name]="'lieu'"
+          [requiredProperty]="'required'"
+          [disabledProperty]="'disabled'"
+          ngDefaultControl>
+        </app-nvne-input-text>
+      </div>
+      <div class="row">
+        <app-nvne-input-text class="col-sm-12 col-lg-6"
+          [ngModel]="userCollaborateur.phoneNumber"
+          [placeholder]="'Téléphone'"
+          [type]="'tel'"
+          [name]="'tel'"
+          id="'tel'"
+          [requiredProperty]="'required'"
+          [disabledProperty]="'disabled'"
+          ngDefaultControl>
+        </app-nvne-input-text>
+        <app-nvne-input-text class="col-sm-12 col-lg-6"
+          [ngModel]=""
+          [placeholder]="'Mot de passe'"
+          [type]="'password'"
+          [name]="'pass'"
+          id="'pass'"
+          [requiredProperty]="'required'"
+          disabled
+          [disabledProperty]="'disabled'"
+          ngDefaultControl>
+        </app-nvne-input-text>
+      </div>
+      <div class="col">
+        <div class="row">
+          <app-nvne-input-text
+              [ngModel]="userCollaborateur.email"
+              [placeholder]="'Email'"
+              [type]="'email'"
+              [name]="'email'"
+              [requiredProperty]="'required'"
+          [disabledProperty]="'disabled'"
+              ngDefaultControl>
+          </app-nvne-input-text>
+        </div>
+      </div>
+    </div>
+
+    <form #f="ngForm" (ngSubmit)="onSave(f.value)" class="col-sm-12 col-md-7">
+      <div class="row">
+        <app-nvne-input-file class="col-sm-12 col-md-6"
+          [ngModel]="cv"
+          [placeholder]="'Votre CV'"
+          [accept]="'.pdf,.doc,.docx,application/pdf,application/vnd.collabio.xodocuments.document'"
+          [name]="'cv'"
+          (onChangeEvent)="setCv($event)"
+          [requiredProperty]="'required'"
+          ngDefaultControl>
+        </app-nvne-input-file>
+
+        <app-nvne-input-file class="col-sm-12 col-md-6"
+          [ngModel]="pceId"
+          [placeholder]="'Pièce d\'identié'"
+          [accept]="'.pdf,.doc,.docx,application/pdf,application/vnd.collabio.xodocuments.document'"
+          [name]="'pceId'"
+          (onChangeEvent)="setPceId($event)"
+          [requiredProperty]="'required'"
+          ngDefaultControl>
+        </app-nvne-input-file>
+      </div>
+      <div class="row">
+        <app-nvne-input-text class="col-sm-12 col-md-6"
+          [ngModel]="userCollaborateur.adresse"
+          [placeholder]="'Adresse'"
+          [type]="'adresse'"
+          [name]="'adresse'"
+          [requiredProperty]="'required'"
+          ngDefaultControl>
+        </app-nvne-input-text>
+        <app-nvne-input-text class="col-sm-12 col-md-6"
+          [ngModel]="userCollaborateur.postal"
+          [placeholder]="'Code Postal'"
+          [type]="'text'"
+          [name]="'postal'"
+          [requiredProperty]="'required'"
+          ngDefaultControl>
+        </app-nvne-input-text>
+      </div>
+      <div class="row">
+        <app-nvne-input-text class="col-sm-12 col-md-6"
+          [ngModel]="userCollaborateur.activite"
+          [placeholder]="'Domaine d\'activité'"
+          [type]="'text'"
+          [name]="'activite'"
+          [requiredProperty]="'required'"
+          ngDefaultControl>
+        </app-nvne-input-text>
+        <app-nvne-input-file class="col-sm-12 col-md-6"
+          [ngModel]="rib"
+          [placeholder]="'RIB'"
+          [accept]="'.pdf,.doc,.docx,application/pdf,application/vnd.collabio.xodocuments.document'"
+          [name]="'rib'"
+          (onChangeEvent)="setRib($event)"
+          [requiredProperty]="'required'"
+          ngDefaultControl>
+        </app-nvne-input-file>
+      </div>
+      <div class="row">
+        <div class="col">
+          <textarea [ngModel]="userCollaborateur.description" name="description" id="description" cols="30" rows="30" placeholder="Description (décris-nous qui tu es, qu'est-ce que tu fais ?...)"></textarea>
+        </div>
+      </div>
+      
+      <div class="row">
+        <app-nvne-btn [disabled]="!f.valid" [type]="'submit'" [text]="'Enregistrer'"></app-nvne-btn>
+        <span *ngIf="progress">{{progress}}%</span>
+      </div>
+    </form>
+  </div>
+
+</div>

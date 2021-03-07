@@ -1,0 +1,34 @@
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Dossiers Collaborateurs</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+          <li class="breadcrumb-item active">Dossiers Collaborateurs</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-12">
+      <app-admin-datatable
+        [size]=5
+        [resourceUrlPath]="resourceUrlPath"
+        [columnDefs]="columnDefs"
+        [resourceName]="resourceName"
+        [title]="'Liste des dossiers Collaborateurs'"
+      ></app-admin-datatable>
+    </div>
+
+
+  </div>
+</section>

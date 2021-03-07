@@ -1,0 +1,30 @@
+app-nvne-rounded-pic-with-status{
+  margin: 0 2.5rem;
+  float: left;
+}
+.side{
+  width: 70%;
+  display: inline-block;
+}
+.last {
+  vertical-align: middle;
+}
+
+.title{
+  font-weight: 600;
+  font-size: large;
+}
+.prix-ico{
+  width: 1.4rem;
+}
+.date{
+  font-size: larger;
+  font-weight: 600;
+}
+.date div{
+  padding-bottom: 3px;
+  white-space: nowrap;
+  overflow: visible;
+  width: 30px;
+  border-bottom: 2px solid black;
+}

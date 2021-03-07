@@ -1,0 +1,108 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak
+  namespace: nvne
+  labels:
+    app: keycloak
+spec:
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: keycloak
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+  namespace: nvne
+  labels:
+    app: keycloak
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak
+  template:
+    metadata:
+      labels:
+        app: keycloak
+    spec:
+      containers:
+      - name: keycloak
+        image: quay.io/keycloak/keycloak:10.0.1
+        env:
+        - name: DB_ADDR
+          value: localhost
+        - name: KEYCLOAK_USER
+          valueFrom:
+              secretKeyRef:
+                name: keycloak-admin-credentials
+                key: username
+        - name: KEYCLOAK_PASSWORD
+          valueFrom:
+              secretKeyRef:
+                name: keycloak-admin-credentials
+                key: password
+        - name: PROXY_ADDRESS_FORWARDING
+          value: "true"
+        - name: KEYCLOAK_LOGLEVEL
+          value: "DEBUG"
+        - name: POSTGRES_USER
+          valueFrom:
+              secretKeyRef:
+                name: keycloak-pgdb-credentials
+                key: username
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+              secretKeyRef:
+                name: keycloak-pgdb-credentials
+                key: password
+        - name: POSTGRES_PORT_5432_TCP_ADDR
+          value: "localhost"
+        - name: POSTGRES_PORT_5432_TCP_PORT
+          value: "5432"
+        - name: POSTGRES_DATABASE
+          valueFrom:
+              secretKeyRef:
+                name: keycloak-pgdb-credentials
+                key: database
+        ports:
+        - name: http
+          containerPort: 8080
+        - name: https
+          containerPort: 8443
+        readinessProbe:
+          httpGet:
+            path: /auth/realms/master
+            port: 8080
+      - name: cloud-sql-proxy
+        # It is recommended to use the latest version of the Cloud SQL proxy
+        # Make sure to update on a regular schedule!
+        image: gcr.io/cloudsql-docker/gce-proxy:1.17
+        command:
+          - "/cloud_sql_proxy"
+          # If connecting from a VPC-native GKE cluster, you can use the
+          # following flag to have the proxy connect over private IP
+          # - "-ip_address_types=PRIVATE"
+
+          # Replace DB_PORT with the port the proxy should listen on
+          # Defaults: MySQL: 3306, Postgres: 5432, SQLServer: 1433
+          - "-instances=stellar-spark-300508:us-central1:rnsks6xfs9urrngn=tcp:5432"
+          # This flag specifies where the service account key can be found
+          - "-credential_file=/secrets/service_account.json"
+        securityContext:
+          # The default Cloud SQL proxy image runs as the
+          # "nonroot" user and group (uid: 65532) by default.
+          runAsNonRoot: true
+        volumeMounts:
+        - name: keycloak-sa-credentials-volume
+          mountPath: /secrets/
+          readOnly: true
+      volumes:
+      - name: keycloak-sa-credentials-volume
+        secret:
+          secretName: keycloak-sa-credentials

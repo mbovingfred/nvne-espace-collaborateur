@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nvne-user-admin-service
+  namespace: nvne
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nvne-user-admin-service
+  template:
+    metadata:
+      labels:
+        app: nvne-user-admin-service
+    spec:
+      # serviceAccountName: nvne-user-admin
+      containers:
+        - name: nvne-user-admin-service
+          image: gcr.io/indigo-almanac-283817/nvne-user-admin-service:0.0.4
+          ports:
+            - containerPort: 8081
+          env:
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: pg-csql-db-credentials
+                key: username
+          - name: DB_PASS
+            valueFrom:
+              secretKeyRef:
+                name: pg-csql-db-credentials
+                key: password
+          - name: DB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: pg-csql-db-credentials
+                key: database
+        # [END cloud_sql_proxy_k8s_secrets]
+        # [START cloud_sql_proxy_k8s_container]
+        - name: cloud-sql-proxy
+          # It is recommended to use the latest version of the Cloud SQL proxy
+          # Make sure to update on a regular schedule!
+          image: gcr.io/cloudsql-docker/gce-proxy:1.17
+          command:
+            - "/cloud_sql_proxy"
+            # If connecting from a VPC-native GKE cluster, you can use the
+            # following flag to have the proxy connect over private IP
+            # - "-ip_address_types=PRIVATE"
+
+            # Replace DB_PORT with the port the proxy should listen on
+            # Defaults: MySQL: 3306, Postgres: 5432, SQLServer: 1433
+            - "-instances=indigo-almanac-283817:us-central1:nvnedb=tcp:5432"
+            # This flag specifies where the service account key can be found
+            - "-credential_file=/secrets/service_account.json"
+          securityContext:
+            # The default Cloud SQL proxy image runs as the
+            # "nonroot" user and group (uid: 65532) by default.
+            runAsNonRoot: true
+          volumeMounts:
+          - name: nvne-sa-secret-volume
+            mountPath: /secrets/
+            readOnly: true
+      volumes:
+      - name: nvne-sa-secret-volume
+        secret:
+          secretName: nvne-sa-secret

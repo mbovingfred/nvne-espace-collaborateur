@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-nvne-fr
+  namespace: nvne
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: nvne-front
+          servicePort: 8080
+      - path: /user/*
+        backend:
+          serviceName: nvne-user-admin-front
+          servicePort: 8080

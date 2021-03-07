@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "stellar-spark-300508",
+  "private_key_id": "ca3fe98868d9d6a0c2e73bd8dc062dd153063190",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDGdeMllmJJ5WTN\nUoT2kZAmGlpTLNQICTK+U+0+0XoKkO+xyaguxZZ+wwa/WTNJacIE6/YHCKjbqTus\n+d4nbK0y+/iBpsFXZOcUdUEJDzYcm5ww2kA5ujBgEa7Z0EZriJ2oVXXrN53N/G3K\nzuGTyASUxElSyYiis1s9eCQ2CB2QbSK0kNiF1rxS86HWbn3xiL9r/z63jTh1OnDb\nyEpkOMTLnDRyNfZf3OzN6vYdieF22fPEeq7p4pYu8SLPUe3eAaYAo1F3K91owXPm\nlHqXCaTWJg43nirnWZrz0U8Gn/tSRJ56Q1bM/Ec9rvyi+Q9RcvfV71uMYbmgs+qA\noyTsMbUhAgMBAAECggEALB9ojWJGXux/wUBf7FvHgxknzMcyKsk0vWj2XZl/+xpn\nGA1f9Wobf/pHJUKlKuS27JYzYDP2KsQQzu/MitJYHXY0tUqIQLBfycYZ2/REUQ7t\nplTXo534BFvaFnX+OgkpGBRL/6whSvscw9LEBzGYhySuspe454dduShdUJ/0Rrf/\n05+OtY26xm96XDYCmwLgKugQFAds9E2NHOxkpRu47BU1GkRPAI7u7YwxfS8inumT\nEgAfWLN9X0bQCEZPUhwflLum1foXytRmWTdH7ASoyccyA75Qy8WQFpdMCd4PtIP8\n/4z7nhHH7Ha4wsGSI58vRWSNpj/Fs3TfSjSMpwMC0wKBgQD/iOe00J+uYdXiQAQs\niYElCPMwp43ZEaQM8hHAwg42fOkGYQJFwh4+pTvPP/Ej0rUyT1OaXSZXSyeqrGzx\n/rEK3UljCE+IzrRqEjE+7J9wVbnv8yx6fvtwGooJ2DSxWazbCb/zyOHOyqAN8iQ/\nLJT6IvuuqIIj9zE4DiZiGZIp6wKBgQDG0mHPK0jqyCpbt8GU1HPz2xscywlGAWhZ\nqVQelvoE2FtK9gpnsf6/pmKDDmT5lpyHaiaOTWq2Q0Q7gqcBQkTHOR26OOe8v2+c\nPr5q6g0SPeLQdfeoYHSEwBybzlrQ58ZyLcHe4b9fGc0sdSQbb48qjaDFkf/ucCTe\nyrm2hdluIwKBgAgwJtyQYs1/rQ7W5ktXDKBXLRO+CrmN6yfPCeqXTUVJs13U9fGu\nSrHPMZ9ueRegxNWb3R3xJi1d5yN86vDGLH4goR1fQs0rcnSDqLhPdLxwwsiBjkdO\nklgBQbMXDnkwWm2aXmA9a57ot0A7JhYwI4XwYQgzthfY7+bP7ULvdtOJAoGBAKVV\nGWTPV8l1PlQa0G1U5j9oenlNFZ8TWJUGzB7L6YjR6cjCJRDp4S+5yr204J70caHh\n0cIP+qcp9LmQAhR36P3KL0BGRd6dStChFHOPweLjd5NmJdXsr7gckS23QanqswkL\np+YRz7PjnsxTdP0jnegC8iiZKjw7IU3rQtfXImIFAoGAWJUVj1jF7k4bs9xhFTjS\nIxsaweSoHWmxOtqf7smeMlZtCdYt5z6AnLT0lqYt1sgm5725GjIzT3VRpHL61N5e\ndod6wY12MFCoOP+G29PKa8HggbOTt4KFceeDc+K4uoGF7RAVbFFSgl0Hb8ToWuem\nXQ1OZARFrPDqj14wxqd/6ZQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "nvne-user-service-sa@stellar-spark-300508.iam.gserviceaccount.com",
+  "client_id": "113271850980756863641",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/nvne-user-service-sa%40stellar-spark-300508.iam.gserviceaccount.com"
+}

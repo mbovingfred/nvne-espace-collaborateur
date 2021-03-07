@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nvne-front
+  namespace: nvne
+  labels:
+    app: nvne-front
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nvne-front
+  template:
+    metadata:
+      labels:
+        app: nvne-front
+    spec:
+      containers:
+      - name: nvne-front
+        image: gcr.io/indigo-almanac-283817/nvne-front:0.0.4
+        ports:
+        - name: http
+          containerPort: 80

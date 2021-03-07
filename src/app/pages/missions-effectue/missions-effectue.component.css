@@ -1,0 +1,33 @@
+app-nvne-input-text {
+  width: 100%;
+}
+app-nvne-rounded-pic-with-ico{
+  margin: auto;
+}
+.center {
+  text-align: center;
+}
+.tabs, .main {
+  padding: 2rem 0;
+}
+textarea {
+  margin: 2rem 0;
+  height: 10rem;
+  border-color: rgb(187, 187, 187);
+  border-radius: 7px;
+}
+
+a.active {
+  border-bottom: 2px solid;
+}
+
+a {
+  display: inline-block;
+  margin: auto;
+  color: black;
+  padding: 0.5rem 0;
+}
+
+a:hover {
+  text-decoration: none;
+}

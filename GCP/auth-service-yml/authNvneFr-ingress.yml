@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nvne-auth
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: sip-nvne-auth
+    networking.gke.io/managed-certificates: mcert-nvne-auth
+    kubernetes.io/ingress.allow-http: "false"
+spec:
+        backend:
+                serviceName: nvne-auth
+                servicePort: 8080
+#status:
+  #loadBalancer:
+    #ingress:
+    #- ip: 34.102.188.241

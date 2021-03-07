@@ -1,0 +1,166 @@
+<div class="m-5"></div>
+<div class="container main">
+
+  <div class="row">
+    <div class="col">
+      <h1>Mon profil</h1>
+    </div>
+  </div>
+
+  <div class="row tabs">
+    <div class="col">
+      <a class="active" [routerLink]="'/entreprise/planning'">PLANNING</a>
+    </div>
+    <div class="col">
+      <a [routerLink]="'/entreprise/missions-effectue'">MISSIONS EFFECTUÉ</a>
+    </div>
+    <div class="col">
+      <a [routerLink]="'/entreprise/profil'">COMPLÉTER MON PROFIL</a>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col col-sm-12 col-md-4">
+      <div class="row">
+        <app-nvne-rounded-pic-with-ico
+          [color]="'green'"
+          [icoSrc]="'https://img.icons8.com/material-sharp/24/000000/edit.png'"
+          [src]="'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50'"
+          [width]="'150'"
+          [height]="'150'">
+        </app-nvne-rounded-pic-with-ico>
+      </div>
+      <div class="row">
+        <div class="col col-sm-12 col-md-6">
+          <app-nvne-input-text
+            [ngModel]=""
+            [placeholder]="'Nom'"
+            [type]="'text'"
+            [name]="'nom'"
+            [requiredProperty]="'required'"
+            ngDefaultControl>
+          </app-nvne-input-text>
+          <app-nvne-input
+            [ngModel]=""
+            [placeholder]="'Date de naissance'"
+            [type]="'date'"
+            [name]="'date_naiss'"
+            [max]="minDate"
+            id="'date_naiss'"
+            [requiredProperty]="'required'"
+            ngDefaultControl>
+          </app-nvne-input>
+          <app-nvne-input-text
+            [ngModel]=""
+            [placeholder]="'Téléphone'"
+            [type]="'tel'"
+            [name]="'tel'"
+            [requiredProperty]="'required'"
+            ngDefaultControl>
+          </app-nvne-input-text>
+        </div>
+        <div class="col col-sm-12 col-md-6">
+          <app-nvne-input-text
+            [ngModel]=""
+            [placeholder]="'Prénom'"
+            [type]="'text'"
+            [name]="'prenom'"
+            [requiredProperty]="'required'"
+            ngDefaultControl>
+          </app-nvne-input-text>
+          <app-nvne-input-text
+            [ngModel]=""
+            [placeholder]="'Lieu de naissance'"
+            [type]="'text'"
+            [name]="'lieu'"
+            [requiredProperty]="'required'"
+            ngDefaultControl>
+          </app-nvne-input-text>
+          <app-nvne-input-text
+            [ngModel]=""
+            [placeholder]="'Mot de passe'"
+            [type]="'password'"
+            [name]="'pass'"
+            [requiredProperty]="'required'"
+            ngDefaultControl>
+          </app-nvne-input-text>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row">
+          <app-nvne-input-text
+              [ngModel]=""
+              [placeholder]="'Email'"
+              [type]="'email'"
+              [name]="'email'"
+              [requiredProperty]="'required'"
+              ngDefaultControl>
+          </app-nvne-input-text>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col col-sm-12 col-md-8">
+      <div class="row">
+        <div class="col">
+          <app-nvne-input
+            [ngModel]=""
+            [placeholder]="'Extrait KBIS'"
+            [type]="'file'"
+            [name]="'kbis'"
+            [requiredProperty]="'required'"
+            ngDefaultControl>
+          </app-nvne-input>
+          <app-nvne-input-text
+            [ngModel]=""
+            [placeholder]="'Adresse'"
+            [type]="'adresse'"
+            [name]="'address'"
+            [requiredProperty]="'required'"
+            ngDefaultControl>
+          </app-nvne-input-text><app-nvne-input-text
+            [ngModel]=""
+            [placeholder]="'Domaine d\'activité'"
+            [type]="'text'"
+            [name]="'domaine'"
+            [requiredProperty]="'required'"
+            ngDefaultControl>
+          </app-nvne-input-text>
+        </div>
+        <div class="col">
+          <app-nvne-input
+            [ngModel]=""
+            [placeholder]="'Pièce d\'identié'"
+            [type]="'file'"
+            [name]="'pceId'"
+            [requiredProperty]="'required'"
+            ngDefaultControl>
+          </app-nvne-input>
+          <app-nvne-input-text
+            [ngModel]=""
+            [placeholder]="'Code Postal'"
+            [type]="'text'"
+            [name]="'postal_code'"
+            [requiredProperty]="'required'"
+            ngDefaultControl>
+          </app-nvne-input-text>
+          <app-nvne-input
+            [ngModel]=""
+            [placeholder]="'RIB'"
+            [type]="'file'"
+            [name]="'rib'"
+            [requiredProperty]="'required'"
+            ngDefaultControl>
+          </app-nvne-input>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row">
+          <textarea name="desc" id="desc" cols="30" rows="30" placeholder="Description (décris-nous qui tu es, qu'est-ce que tu fais ?...)"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,25 @@
+:host ::ng-deep #main>.row {
+    /* padding: 64px auto; */
+    margin: 0 auto;
+}
+
+:host ::ng-deep #main h2 {
+    margin: 24px auto;
+}
+
+:host ::ng-deep form .row {
+    margin: 16px auto;
+}
+
+:host ::ng-deep input[type=text],
+:host ::ng-deep input[type=email],
+:host ::ng-deep textarea {
+    display: inline-block;
+    width: 100%;
+    /* height: 40px; */
+}
+
+.content-wrapper {
+  min-height: 70vh;
+}
+

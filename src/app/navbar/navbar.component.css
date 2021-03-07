@@ -1,0 +1,23 @@
+.btn-light, .btn-dark {
+  border-radius: 50px;
+  padding: 6px 40px;
+  font-weight: 500;
+}
+
+.btn-dark, .navbar-dark, .bg-dark{
+  background-color: black !important;
+}
+
+.navi-item{
+  line-height: 40px;
+  cursor: pointer;
+}
+@media only screen and (max-device-width: 420px) {
+  .nav{
+    text-align: center;
+  }
+  app-nvne-btn, app-nvne-btn-o {
+    margin: auto;
+  }
+}
+

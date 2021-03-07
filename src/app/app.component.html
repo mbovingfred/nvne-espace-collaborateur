@@ -1,0 +1,19 @@
+<body>
+    <!-- navbar -->
+    <app-navbar></app-navbar>
+
+    <router-outlet (activate)="onActivate($event)">
+
+    </router-outlet>
+
+    <app-my-footer></app-my-footer>
+
+  <!-- AOS -->
+  <script>
+    AOS.init({
+    });
+    $('.navbar-nav *').on('click', function(){
+      $('.navbar-collapse').collapse('hide');
+    });
+  </script>
+</body>

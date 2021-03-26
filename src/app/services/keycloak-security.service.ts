@@ -22,7 +22,7 @@ export class KeycloakSecurityService {
   async init(){
     console.log("Security Information ... "+environment.authApiUrl);
     this.realm = "nvne-realm";
-    this.clientId = "nvne-espace-collaborateur";
+    this.clientId = environment.clientId;
     this.kcUrl = environment.authApiUrl+"/";
     this.kc= new Keycloak({
       url:this.kcUrl,

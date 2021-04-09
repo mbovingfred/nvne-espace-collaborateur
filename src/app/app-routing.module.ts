@@ -9,12 +9,12 @@ import { PlanningComponent } from './pages/planning/planning.component';
 
 const routes: Routes = [
   { path: '', component: ProfilComponent },
-  { path: 'collaborateur/collaborateurs', component: CollaborateursComponent},
-  { path: 'collaborateur/vous-etes', component: VousEtesComponent},
+  // { path: 'collaborateur/collaborateurs', component: CollaborateursComponent},
+  // { path: 'collaborateur/vous-etes', component: VousEtesComponent},
   { path: 'collaborateur/profil', component: ProfilComponent},
   { path: 'collaborateur/missions-effectue', component: MissionsEffectueComponent},
   { path: 'collaborateur/planning', component: PlanningComponent},
-  { path: 'collaborateur/planning', component: PlanningComponent},
+  // { path: 'collaborateur/planning', component: PlanningComponent},
   // { path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 

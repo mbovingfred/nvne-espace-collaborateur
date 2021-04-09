@@ -11,7 +11,7 @@
 
 export const environment = {
   production: false,
-  clientId: 'nvne-espace-collaborateur',
+  clientId: 'service-espace-collaborateur',
   authApiUrl: 'http://localhost:8080/auth',
   backendApiUrl: 'http://localhost:8083/api/espacecollaborateur',
   adminUrl: 'http://localhost:4200',
